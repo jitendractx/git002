@@ -1,0 +1,36 @@
+name: "🌍 Terraform Plan"
+
+on:
+  workflow_dispatch:    
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform:
+    name: "🛠️ Terraform Plan"
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repo
+      - name: "📦 Checkout code"
+        uses: actions/checkout@v4
+
+      # Setup Terraform CLI
+      - name: "⚡ Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.5   # pick your version
+
+      # Init Terraform
+      - name: "🚀 Terraform Init"
+        run: terraform -chdir=infra init
+
+      # Validate syntax
+      - name: "🔍 Terraform Validate"
+        run: terraform -chdir=infra validate
+
+      # Run Plan
+      - name: "📝 Terraform Plan"
+        run: terraform -chdir=infra plan
