@@ -1,1 +1,24 @@
-name : action workflow
+name: 🚀 CI Workflow
+
+on:
+  pull_request:
+  workflow_dispatch: 
+  schedule:
+    - cron: 1 * * * *        
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: 🏃‍♀️ ubuntu-latest
+    steps:
+        - name: build checkout repo
+          uses: actions/checkout@v4 
+
+        - name: setup node
+          uses: actions/setup-node@4
+          with:
+            node-version: 20    
+
+
+
