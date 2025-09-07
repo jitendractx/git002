@@ -25,12 +25,12 @@ jobs:
 
       # Init Terraform
       - name: "🚀 Terraform Init"
-        run: terraform -chdir=infra init
+        run: terraform -chdir=Infra init
 
       # Validate syntax
       - name: "🔍 Terraform Validate"
-        run: terraform -chdir=infra validate
+        run: terraform -chdir=Infra validate
 
       # Run Plan
       - name: "📝 Terraform Plan"
-        run: terraform -chdir=infra plan
+        run: terraform -chdir=Infra plan
