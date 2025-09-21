@@ -24,8 +24,8 @@ jobs:
           terraform_version: 1.9.5   # pick your version
 
       # Init Terraform
-      - name: "🚀 Terraform Init"
-        run: terraform -chdir=Infra init
+      # - name: "🚀 Terraform Init"
+      #   run: terraform -chdir=Infra init
 
       # Validate syntax
       - name: "🔍 Terraform Validate"
